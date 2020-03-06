@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>addnewreq</title>
+</head>
+<body>
+    <form action="~/TRM/addnewreq" method="post">
+        <div>
+            <table border="1">
+                <tr>
+                    <td>
+                        <p>
+                            Skills
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            Start Date
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            End Date
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DropDownList("skill", (SelectListItem[])@ViewBag.lists)</td>
+                    <td>@Html.TextBox("sdate", null, new { type = "date" })</td>
+                    <td>@Html.TextBox("edate", null, new { type = "date" })</td>
+                </tr>
+            </table>
+            <input type="submit" />
+        </div>
+    </form>
+</body>
+</html>

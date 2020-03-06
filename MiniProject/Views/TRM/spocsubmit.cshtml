@@ -1,0 +1,41 @@
+﻿
+
+@model MiniProject.request
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>spocsubmit</title>
+</head>
+<body>
+    <form action="/TRM/spocdb" method="post">
+        <table border="1">
+            <tr>
+                <td>
+                    <p>executive id</p>
+                </td>
+                <td>
+                    <p>
+                        trainer id
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DropDownList("trainer", (SelectListItem[])(ViewBag.trainers))
+                </td>
+                <td>
+                    @Html.DropDownList("executive", (SelectListItem[])ViewBag.executives)
+                </td>
+            </tr>
+
+        </table>
+        <input type="submit" />
+    </form>
+</body>
+</html>

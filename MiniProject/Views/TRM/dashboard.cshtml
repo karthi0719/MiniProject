@@ -1,0 +1,57 @@
+﻿
+@model List<MiniProject.request>
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>dashboard</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Request Id</td>
+                <td>Skill Name</td>
+                <td>Start Date</td>
+                <td>End Date</td>
+                <td>status</td>
+                <td>Executive Id</td>
+                <td>Trainer Id</td>
+            </tr>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.reqid</td>
+                    <td>@i.skillname</td>
+                    <td>@i.sdate</td>
+                    <td>@i.edate</td>
+                    <td>@i.status</td>
+                    <td>@i.execid</td>
+                    <td>@i.trainerid</td>
+                    @{
+                        if ((ViewBag.rid == 2) && (i.status == "requested"))
+                        {
+                            <td><a href="~/TRM/spocsubmit?rid=@i.reqid">Click Here</a></td>
+                        }
+                    }
+                    @{
+                        if ((ViewBag.rid == 1) && (i.status == "assigned"))
+                        {
+                            <td><a href="~/TRM/confirm?rid=@i.reqid">Click Here</a></td>
+                        }
+                    }
+                </tr>
+                        }
+        </table>
+        @{
+            if (@ViewBag.rid == 1)
+            {
+                <div><a href="~/TRM/addnewreq">Add New Request</a></div>
+            }
+
+        }
+    </div>
+</body>
+</html>

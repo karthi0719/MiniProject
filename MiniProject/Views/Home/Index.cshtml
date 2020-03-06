@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <span>UserName:</span>@Html.TextBox("uname");<br />
+    <span>Password:</span>@Html.TextBox("pass")<br />
+    <input type="submit" />
+}
+
+
